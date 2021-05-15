@@ -114,9 +114,9 @@ class Racketka1(Main):
                 self.need_change_speed = False
 
         keys=key.get_pressed()
-        if keys[K_p]:
+        if keys[K_UP]:
             self.rect.y -= self.speed
-        if keys[K_l]:
+        if keys[K_DOWN]:
             self.rect.y += self.speed
         self.reset()
 
@@ -134,7 +134,7 @@ class Wall(sprite.Sprite):
     def update(self):
         if sprite.collide_rect(self,ball):
             global end_game
-            end_game = lose_text       
+            end_game = lose_text    
         self.reset()
 
 class Bird(Main):  
@@ -166,10 +166,10 @@ class Bird(Main):
 
         self.reset()
 
-ball = Ball(x= 200,y = 540,filename="Ball.png",speed = q,v = 50,n = 50)
-racketka_left = Racketka(x = 10,y=540,filename="racketka1.png",speed = a,v = 50,n = 160)
-racketka_right = Racketka1(x = 1860,y = 540,filename="racketka.png",speed = a,v = 50,n = 160)
-ptica = Bird(x= 200,y = 200,filename="Bird.png",speed = 5,v = 100,n = 100)
+ball = Ball(x= 200,y = 540,filename="b.png",speed = q,v = 100,n = 100)
+racketka_left = Racketka(x = 10,y=540,filename="p.png",speed = a,v = 100,n = 160)
+racketka_right = Racketka1(x = 1840,y = 540,filename="k.png",speed = a,v = 100,n = 160)
+ptica = Bird(x= 200,y = 200,filename="sponge.png",speed = 5,v = 100,n = 100)
 
 CornflowerBlue = (100,149,237)   
 DarkSlateBlue = (72,61,139)  
@@ -187,14 +187,14 @@ timer = time.Clock()
 FPS = 60
 
 mixer.init()
-mixer.music.load("Music.mp3")
+mixer.music.load("nastolgi.mp3")
 mixer.music.play()
 
-fon=image.load("fon.png")
+fon=image.load("r.png")
 
 font.init()
 shirift = font.SysFont("Impact",148)
-lose_text = shirift.render("ТЫ ПРОИГРАЛ",False,DarkSlateBlue)
+lose_text = shirift.render("ПРОИГРАЛ",False,DarkSlateBlue)
 
 game = True
 end_game = False
